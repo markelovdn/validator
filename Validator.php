@@ -7,9 +7,7 @@ class Validator
      * @param $text string
      * @param null $size int
      * @return bool
-     * This method checks the length of the entered text if the number of characters is specified.
-     * If the number of characters is not specified, the method returns the text filtered using the filter_var() function
-     * with the FILTER_SANITIZE_STRING flag
+     * This method checks the length of the entered text if the number of characters is specified. If the number of characters is not specified, the method returns the text filtered using the filter_var() function
      */
     public static function text ($text, $size=null) {
         $text = filter_var($text, FILTER_SANITIZE_STRING);
@@ -24,8 +22,7 @@ class Validator
     /**
      * @param $email string
      * @return bool
-     * This method checks the correctness of the entered email address using the
-     * filter_var() function
+     * This method checks the correctness of the entered email address using the filter_var() function
      */
     public static function email ($email) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -39,9 +36,7 @@ class Validator
      * @param $pass string
      * @param $len int
      * @return bool
-     * This method checks the length of the entered password,
-     * the length of the password is set as the second parameter when calling
-     * the method.
+     * This method checks the length of the entered password, the length of the password is set as the second parameter when calling the method.
      */
     public static function pass ($pass, $len) {
         $pass = strlen($pass);
@@ -56,8 +51,7 @@ class Validator
      * @param $login string
      * @param $len int
      * @return bool
-     *This method checks the length of the entered login, the length of
-     *the login is set by the second parameter when calling the method.
+     *This method checks the length of the entered login, the length of the login is set by the second parameter when calling the method.
      */
     public static function login ($login, $len) {
         $login = strlen($login);
@@ -73,8 +67,7 @@ class Validator
      * @param $min int
      * @param $max int
      * @return bool
-     * This method checks if the entered number falls within
-     * the range of the minimum and maximum values.
+     * This method checks if the entered number falls within the range of the minimum and maximum values.
      */
     public static function numberminmax ($number, $min, $max) {
         $number = filter_var($number,FILTER_VALIDATE_INT, array('options' => array('min_range' => $min, 'max_range' => $max)));
@@ -117,8 +110,7 @@ class Validator
     /**
      * @param $tel string
      * @return bool
-     * This method is the correctness of the entered phone,
-     * it is possible to enter only numbers and signs + and -
+     * This method is the correctness of the entered phone, it is possible to enter only numbers and signs + and -
      */
     public static function tel ($tel) {
         $tel = preg_match('/^[+0-9-]+$/', $tel);
@@ -161,8 +153,7 @@ class Validator
      * @param $file file
      * @param $type string
      * @return bool
-     * This method checks the extension of the loaded document.
-     * Extensions must be specified as the second parameter, separated by commas.
+     * This method checks the extension of the loaded document. Extensions must be specified as the second parameter, separated by commas.
      */
     public static function file ($file, $type) {
         $tmp = explode('.', $file['name']);
